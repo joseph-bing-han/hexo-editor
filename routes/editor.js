@@ -7,6 +7,7 @@ const config = yaml.safeLoad(fs.readFileSync('./_config.yml', 'utf8'));
 const Manager = require('../models/file-manager');
 const cache = require('../models/cache');
 const busboy = require('connect-busboy');
+const moment = require('moment');
 
 const manager = new Manager(config.base_dir);
 
@@ -16,7 +17,7 @@ router.get('/', (req, res, next) => {
   const articleId = req.query.id;
   cache.get(articleId, (article) => {
     if (!article) {
-      article = {'title': 'Untitled', 'date': '', 'tags': '',
+      article = {'title': 'Untitled', 'date': moment().format('lll'), 'tags': '',
                  'categories': '', 'content': '', 'key': ''};
     }
     res.render('editor', {'article': article});

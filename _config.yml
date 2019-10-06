@@ -2,10 +2,10 @@
 local: false
 
 # the username to login hexo editor
-username: hexo
+username: joseph
 
 # the password for logining hexo editor
-password: imyouradmin
+password: 111111
 
 # the blog directory
 base_dir: ./docs

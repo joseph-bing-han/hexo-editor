@@ -9,7 +9,6 @@ const Manager = require('../models/file-manager');
 const Article = require('../models/article');
 const util = require('../models/util');
 const cache = require('../models/cache');
-const emoji = require('../models/emoji');
 
 auth.init(config.username, config.password);
 const manager = new Manager(config.base_dir);
@@ -30,7 +29,7 @@ router.get('/', (req, res, next) => {
         console.error(err)
     });
   } else {
-    res.render('login', {'emoji': emoji.random()});
+    res.render('login');
   }
 });
 
